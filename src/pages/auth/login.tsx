@@ -1,13 +1,14 @@
-import { login } from '@/api/auth';
-import { subtitle, title } from '@/components/primitives';
-import AuthLayout from '@/layouts/auth';
-import { PartialUser } from '@/types';
 import { Button } from '@heroui/button';
 import { Input } from '@heroui/input';
 import { CircularProgress } from '@heroui/progress';
 import { Lock, UserRoundIcon } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+
+import { PartialUser } from '@/types';
+import AuthLayout from '@/layouts/auth';
+import { subtitle, title } from '@/components/primitives';
+import { login } from '@/api/auth';
 
 export default function Login() {
 	const [data, setData] = useState<PartialUser>({
@@ -30,6 +31,7 @@ export default function Login() {
 			setLoading(false);
 		}
 	};
+
 	return (
 		<AuthLayout isLogin={true}>
 			<div className="flex flex-col justify-center items-center min-h-screen px-6 py-12 bg-white text-gray-800">
@@ -41,13 +43,13 @@ export default function Login() {
 
 					<div className="space-y-4">
 						<Input
+							placeholder="Nom d'utilisateur"
 							startContent={
 								<UserRoundIcon className="w-5 h-5 text-gray-400" />
 							}
-							placeholder="Nom d'utilisateur"
 							type="text"
-							variant="bordered"
 							value={data.username}
+							variant="bordered"
 							onValueChange={(value: string) =>
 								setData((prev) => ({
 									...prev,
@@ -57,13 +59,13 @@ export default function Login() {
 						/>
 
 						<Input
+							placeholder="Mot de passe"
 							startContent={
 								<Lock className="w-5 h-5 text-gray-400" />
 							}
-							placeholder="Mot de passe"
 							type="password"
-							variant="bordered"
 							value={data.password}
+							variant="bordered"
 							onValueChange={(value: string) =>
 								setData((prev) => ({
 									...prev,
@@ -74,13 +76,13 @@ export default function Login() {
 					</div>
 
 					<Button
-						variant="solid"
-						color="primary"
 						className="w-full"
+						color="primary"
+						variant="solid"
 						onPress={onSubmit}
 					>
 						{loading ? (
-							<CircularProgress size="md" color="default" />
+							<CircularProgress color="default" size="md" />
 						) : (
 							'Connexion'
 						)}

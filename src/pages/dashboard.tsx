@@ -1,3 +1,9 @@
+import DashboardLayout from '@/layouts/dasboad';
+
 export default function Dashboard() {
-	return <span>dd</span>;
+	return (
+		<DashboardLayout title="Tableau de board">
+			<p>bienvenue</p>
+		</DashboardLayout>
+	);
 }

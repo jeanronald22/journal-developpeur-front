@@ -1,5 +1,6 @@
-import { subtitle, title } from '@/components/primitives';
 import { Button } from '@heroui/button';
+
+import { subtitle, title } from '@/components/primitives';
 
 export default function AuthLayout({
 	children,
@@ -27,7 +28,7 @@ export default function AuthLayout({
 					</p>
 				)}
 
-				<Button variant="solid" color="primary" className="w-32">
+				<Button className="w-32" color="primary" variant="solid">
 					{isLogin ? 'Register' : 'Login'}
 				</Button>
 			</div>
