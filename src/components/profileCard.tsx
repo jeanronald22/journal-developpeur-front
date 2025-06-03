@@ -3,6 +3,7 @@ import { Avatar } from '@heroui/avatar';
 import { Button } from '@heroui/button';
 
 export default function ProfilCart() {
+	// TODO: gere les info variavle telque le plan
 	return (
 		<Card>
 			<CardHeader className="justify-between">
@@ -27,9 +28,20 @@ export default function ProfilCart() {
 			<CardBody className="px-3 py-0 text-small text-default-400">
 				<p>vous etes actuellement sur la plan graduit</p>
 			</CardBody>
-			<CardFooter className="w-ful">
-				<Button color="primary" className="w-full">
-					Upgrade
+			<CardFooter className="w-ful flex flex-col space-y-4">
+				<Button
+					color="primary"
+					className="w-full px-6 py-2 font-semibold"
+					variant="shadow"
+				>
+					Upgrade plan
+				</Button>
+				<Button
+					color="primary"
+					className="w-full px-6 py-2 font-semibold"
+					variant="ghost"
+				>
+					Feedback
 				</Button>
 			</CardFooter>
 		</Card>
