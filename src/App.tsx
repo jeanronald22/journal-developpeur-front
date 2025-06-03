@@ -4,9 +4,9 @@ import PrivateRoute from './components/PrivateRoute';
 import RegisterPage from './pages/auth/register';
 import Login from './pages/auth/login';
 import Dashboard from './pages/dashboard';
-import Snippet from './pages/snippets';
 import Categorie from './pages/categories';
 import Parametre from './pages/parametre';
+import Snippet from './pages/snippets/snippets';
 
 function App() {
 	return (

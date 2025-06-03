@@ -19,22 +19,23 @@ const navigation = [
 ];
 export default function SideBar({ collapsed }: { collapsed: boolean }) {
 	const location = useLocation();
+
 	return (
 		<div
 			className={clsx(
-				'h-screen bg-white shadow text-gray-600 transition-all duration-300 flex flex-col p-4',
-				collapsed ? 'w-20 items-center' : 'w-48 items-center'
+				'h-screen  shadow  transition-all duration-300 flex flex-col p-4 overflow-hidden ',
+				collapsed ? 'w-20 items-center' : 'w-52 items-center'
 			)}
 		>
 			<div
 				className={clsx(
-					'flex flex-col items-center justify-center mb-6 space-y-2'
+					'flex flex-col items-center justify-center mb-6 space-y-2 '
 				)}
 			>
 				<img src={logo} alt="logo" />
-				<p>Snippet</p>
+				<p className="font-semibold">Snippet</p>
 			</div>
-			<nav className="space-y-2 w-full">
+			<nav className="space-y-2 w-full ">
 				{navigation.map((item) => {
 					const isActive = location.pathname === item.href;
 					return (
@@ -43,7 +44,7 @@ export default function SideBar({ collapsed }: { collapsed: boolean }) {
 							// to={item.href}
 							className={clsx(
 								subtitle({
-									class: 'flex items-center p-2 rounded hover:bg-gray-100 transition w-full ',
+									class: 'flex items-center p-2 rounded hover:bg-foreground-50 transition w-full font-semibold ',
 								}),
 								collapsed ? 'justify-center' : 'space-x-3',
 								isActive ? 'text-primary' : ''
@@ -52,11 +53,12 @@ export default function SideBar({ collapsed }: { collapsed: boolean }) {
 						>
 							<item.icon
 								className={clsx(
-									!collapsed ? 'h-4 w-4 ' : 'h-5 w-5 '
+									!collapsed ? 'h-5 w-5 ' : 'h-6 w-6 '
 								)}
 							/>
+
 							{!collapsed && (
-								<span className="text-base ">{item.name}</span>
+								<span className="text-base">{item.name}</span>
 							)}
 						</Link>
 					);

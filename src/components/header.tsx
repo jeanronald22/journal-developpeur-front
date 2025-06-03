@@ -1,6 +1,9 @@
 import { Button } from '@heroui/button';
 import { SidebarClose, SidebarOpen } from 'lucide-react';
 import { useState } from 'react';
+import { ThemeSwitch } from './theme-switch';
+import { useMyStore } from '@/store/useSnippet';
+import { Badge } from '@heroui/badge';
 
 export default function Header({
 	onToggleSidebar,
@@ -10,8 +13,9 @@ export default function Header({
 	title: string;
 }) {
 	const [isToggle, setIsToggle] = useState(false);
+	const totalSnippets = useMyStore((state) => state.totalSnippets);
 	return (
-		<header className="h-16 bg-white shadow px-6 flex items-center justify-between sticky top-0 z-10">
+		<header className="h-16  shadow px-6 flex items-center justify-between sticky top-0 z-10">
 			<div className="flex items-center space-x-4">
 				<Button
 					onPress={() => {
@@ -24,12 +28,21 @@ export default function Header({
 					variant="flat"
 				>
 					{!isToggle ? (
-						<SidebarClose className="text-gray-600" />
+						<SidebarClose className="text-foreground" />
 					) : (
-						<SidebarOpen className="text-gray-600" />
+						<SidebarOpen className="text-foreground" />
 					)}
 				</Button>
-				<h1 className="text-lg font-semibold text-gray-600">{title}</h1>
+				<ThemeSwitch />
+				<Badge
+					content={totalSnippets}
+					color="primary"
+					shape="rectangle"
+				>
+					<h1 className="text-lg font-semibold text-foreground">
+						{title}
+					</h1>
+				</Badge>
 			</div>
 		</header>
 	);
